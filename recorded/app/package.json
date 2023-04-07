@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch api.js",
+    "test:dev": "node --watch --test api.test.js",
+    "test": "node --test api.test.js"
+  },
+  "engines": {
+    "node": "19"
+  },
+  "keywords": [],
+  "author": "erickwendel",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0"
+  }
+}
