@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4b5222ea-4770-4f14-bf32-1cfc3d40db88",
+		"_postman_id": "e5d32da6-5c2d-4f3d-b721-fd3753b67b71",
 		"name": "My App",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "94521"
@@ -8,6 +8,19 @@
 	"item": [
 		{
 			"name": "http://localhost:3000/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const {token} = JSON.parse(responseBody)",
+							"pm.globals.set(\"authKey\", token);",
+							"console.log(\"authKey:\", pm.globals.get(\"authKey\"))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -42,7 +55,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZXJpY2t3ZW5kZWwiLCJtZXNzYWdlIjoiaGV5ZHV1ZGUiLCJpYXQiOjE2ODA4MTU5MDF9.EQI8_73bICd3IMMmsoGaZH29S-6I10f9EYLudaEOs98",
+							"value": "{{authKey}}",
 							"type": "string"
 						}
 					]

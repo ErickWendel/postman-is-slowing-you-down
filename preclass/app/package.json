@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node --watch api.js",
     "test:dev": "node --test --watch api.test.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test api.test.js"
   },
   "engines": {
     "node": "19"

@@ -1,0 +1,64 @@
+fork ou git clone 
+git checkout template
+node -v
+npm ci --silent
+npm run dev
+
+open postman 
+  POST http://localhost:3000/login
+  body JSON
+  {
+      "user": "erickwendel",
+      "password": "123"
+  }
+
+  GET http://localhost:3000/
+  Authorization 
+    bearer token and paste it 
+  then
+  TEST
+    const {token} = JSON.parse(responseBody)
+    pm.globals.set("authKey", token);
+    console.log("authKey:", pm.globals.get("authKey"))
+  api.js 
+    if products 
+      createProductRoute
+        console.log(JSON.parse)
+        response.end('ok')
+        show mistakes:
+          desc 
+          descript
+          description
+  
+  touch api.test.js 
+  package.json 
+    test, test:dev
+  api.test.js 
+    describe
+      before 
+      after 
+  -> should not keep the server running on watch 
+  makeRequest
+   all
+  setToken
+    all 
+  before(() => setToken())
+  -> should keep the token before starting the suite
+  first it 
+    it should create a premium product
+      all 
+  api.js 
+    only premium
+    all 
+  -> test should pass 
+  api.test.js
+    second it 
+      copy and paste
+  api.js 
+    regular 
+  -> test should pass 
+  api.test.js 
+    basic 
+  -> test should pass 
+
+https://learning.postman.com/docs/sending-requests/variables/#defining-variables-in-scripts
