@@ -5,15 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch api.js",
-    "test:dev": "node --test --watch api.test.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node --watch api.js"
   },
   "engines": {
     "node": "19"
   },
   "keywords": [],
-  "author": "",
+  "author": "erickwendel",
   "license": "ISC",
   "dependencies": {
     "jsonwebtoken": "^9.0.0"

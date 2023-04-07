@@ -21,32 +21,6 @@ async function loginRoute(request, response) {
   response.end(JSON.stringify({ token }))
 }
 
-async function createProductRoute(request, response) {
-  const { name, description, price } = JSON.parse(await once(request, "data"))
-  // se preço > 100 = premium
-  // se preço > 50 && < 100= regular
-  // se preco < 50 = basic
-  const categories = {
-    premium: {
-      from: 100,
-      to: 101
-    },
-    regular: {
-      from: 51,
-      to: 100
-    },
-    basic: {
-      from: 0,
-      to: 50
-    }
-  }
-  const [result] = Object.keys(categories).filter(key => {
-    const category = categories[key]
-    return price >= category.from && price <= category.to
-  })
-  response.end(JSON.stringify({ category: result }))
-}
-
 function validateHeaders(headers) {
   try {
     const auth = headers.authorization.replace(/bearer\s/ig, '')
@@ -56,6 +30,7 @@ function validateHeaders(headers) {
     return false
   }
 }
+
 async function handler(request, response) {
   if (request.url === '/login' && request.method === "POST") {
     return loginRoute(request, response)
@@ -64,10 +39,6 @@ async function handler(request, response) {
   if (!validateHeaders(request.headers)) {
     response.writeHead(404)
     return response.end("invalid token!")
-  }
-
-  if (request.url === "/products" && request.method === "POST") {
-    return createProductRoute(request, response)
   }
 
   response.writeHead(404)
